@@ -29,28 +29,28 @@ def pkg_url(env):
         url = env.globals['base'].url
         if url is not None:
             return url
-    except KeyError:
+    except (KeyError, AttributeError):
         pass
 
     try:
         url = env.globals['github'].url
         if url is not None:
             return url
-    except KeyError:
+    except (KeyError, AttributeError):
         pass
 
     try:
         url = env.globals['pypi'].url
         if url is not None:
             return url
-    except KeyError:
+    except (KeyError, AttributeError):
         pass
 
     try:
         url = env.globals['readthedocs'].url
         if url is not None:
             return url
-    except KeyError:
+    except (KeyError, AttributeError):
         pass
 
     return ""
